@@ -1,10 +1,10 @@
 import java.sql.*;
 
 public class ResultSetNavigationDemo {
-    static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    static final String DATABASE_URL = "jdbc:mysql://localhost/my_db";
+    static final String JDBC_DRIVER = "org.postgresql.Driver";
+    static final String DATABASE_URL = "jdbc:postgresql://localhost/proselyte_jdbc_db";
 
-    static final String USER = "root";
+    static final String USER = "postgres";
     static final String PASSWORD = "admin";
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {

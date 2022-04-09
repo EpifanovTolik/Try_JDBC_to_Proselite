@@ -4,10 +4,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class InsertTableJdbc {
-    static final String DATABASE_URL = "jdbc:mysql://localhost/PROSELYTE_JDBC_DB";
-    static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
+    static final String JDBC_DRIVER = "org.postgresql.Driver";
+    static final String DATABASE_URL = "jdbc:postgresql://localhost/proselyte_jdbc_db";
 
-    static final String USER = "root";
+    static final String USER = "postgres";
     static final String PASSWORD = "admin";
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
@@ -23,7 +23,7 @@ public class InsertTableJdbc {
             System.out.println("Creating table in selected database...");
             statement = connection.createStatement();
 
-            String SQL = "INSERT INTO PROSELYTE_JDBC_DB.developers (name, specialty, salary) VALUES " +
+            String SQL = "INSERT INTO developers (name, specialty, salary) VALUES " +
                     "('Proselyte', 'Java', '2000'), " +
                     "('Peter','C++', '3000')," +
                     "('AsyaSmile', 'UI/UX', '2000')";

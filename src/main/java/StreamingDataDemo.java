@@ -2,11 +2,12 @@ import java.io.*;
 import java.sql.*;
 
 public class StreamingDataDemo {
-    static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    static final String DATABASE_URL = "jdbc:mysql://localhost/my_db";
+    static final String JDBC_DRIVER = "org.postgresql.Driver";
+    static final String DATABASE_URL = "jdbc:postgresql://localhost/proselyte_jdbc_db";
 
-    static final String USER = "root";
+    static final String USER = "postgres";
     static final String PASSWORD = "admin";
+
 
     public static void main(String[] args) {
         Connection conn = null;
@@ -14,7 +15,7 @@ public class StreamingDataDemo {
         Statement stmt = null;
         ResultSet rs = null;
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("org.postgresql.Driver");
 
             System.out.println("Connecting to database...");
             conn = DriverManager.getConnection(DATABASE_URL, USER, PASSWORD);

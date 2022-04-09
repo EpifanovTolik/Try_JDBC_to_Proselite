@@ -4,10 +4,16 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class CreateTableJdbc {
-    static final String DATABASE_URL = "jdbc:mysql://localhost/PROSELYTE_JDBC_DB";
-    static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
+//    static final String DATABASE_URL = "jdbc:mysql://localhost/PROSELYTE_JDBC_DB";
+//    static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
+//
+//    static final String USER = "root";
+//    static final String PASSWORD = "admin";
 
-    static final String USER = "root";
+    static final String JDBC_DRIVER = "org.postgresql.Driver";
+    static final String DATABASE_URL = "jdbc:postgresql://localhost/proselyte_jdbc_db";
+
+    static final String USER = "postgres";
     static final String PASSWORD = "admin";
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
@@ -23,12 +29,7 @@ public class CreateTableJdbc {
             System.out.println("Creating table in selected database...");
             statement = connection.createStatement();
 
-            String SQL = "CREATE TABLE PROSELYTE_JDBC_DB.developers (\n" +
-                    "  id INT NOT NULL AUTO_INCREMENT,\n" +
-                    "  name VARCHAR(50) NOT NULL,\n" +
-                    "  specialty VARCHAR(50) NOT NULL,\n" +
-                    "  salary INT NOT NULL,\n" +
-                    "  PRIMARY KEY (id));";
+            String SQL = "CREATE TABLE developers(Id SERIAL PRIMARY KEY, name VARCHAR(50) NOT NULL,specialty VARCHAR(50) NOT NULL,salary INT NOT NULL);";
 
             statement.executeUpdate(SQL);
             System.out.println("Table successfully created...");
